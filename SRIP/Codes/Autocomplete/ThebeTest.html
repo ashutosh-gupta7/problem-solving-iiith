@@ -1,0 +1,52 @@
+<!--
+A Test page to load ThebeLab and test that it works, and also to check compatibility between the editarea library and ThebeLab
+-->
+
+<html>
+<head>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/requirements",
+        },
+    }
+</script>
+
+<!-- Script to Load Thebe from CDN -->
+<script src="ThebeCDN.js"></script>
+
+<!-- Script for editarea js -->
+<script language="Javascript" type="text/javascript" src="../Libraries/edit_area/edit_area/edit_area_full.js"></script>
+
+<!-- Script to Load Editarea -->
+<script language="Javascript" type="text/javascript">
+
+editAreaLoader.init({
+	id : "editarea"		// textarea id
+	,syntax: "c"        //language syntax
+	,start_highlight: true
+});
+
+</script>
+</head>
+
+<body>
+<button id="execute">execute</button>
+
+<textarea id="editarea" data-executable="true" name="editarea" cols="80" rows="15">print("hello")</textarea>
+
+<!--<pre data-executable="true" data-language="python"></pre>-->
+
+<script>
+
+//Makes the data-executable textarea into a live cell upon clicking the execute button
+document.querySelector("#execute").addEventListener(
+	'click', function() {
+		thebelab.bootstrap();
+	});
+</script>
+
+</body>
+
+</html>
