@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Submission History</title>
+        <p><a href="/" class="button">Back to Editor</a></p>
+        <h1>Submission History</h1>
+        <style>
+           .button {
+                display: inline-block;
+                padding: 15px 25px;
+                font-size: 12px;
+                cursor: pointer;
+                text-align: center;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 9px #999;
+            }
+
+            .button:hover {background-color: #3e8e41}
+
+            .button:active {
+                background-color: #3e8e41;
+                box-shadow: 0 5px #666;
+                transform: translateY(4px);
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {background-color: #f2f2f2;}
+        </style>
+        </head>
+   <body>
+        <div style="overflow-x:auto;">
+        <table border = 3 >
+            <thead>
+                <td>Time</td>
+                <td>Problem No.</td>
+                <td>Language</td>
+                <td>Code</td>
+            </thead>
+            
+            {% for row in rows %}
+                <tr>
+                <td>{{row[1]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[3]}}</td>
+                <td><pre>{{row[2]}}</pre></td>	
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+      <p><a href="/" class="button">Back to Editor</a></p>
+   </body>
+</html>
